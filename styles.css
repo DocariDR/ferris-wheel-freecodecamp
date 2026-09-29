@@ -1,0 +1,10 @@
+/* La bordure est comptée dans la largeur et la hauteur des éléments */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+}
