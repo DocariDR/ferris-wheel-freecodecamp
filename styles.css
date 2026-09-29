@@ -20,6 +20,7 @@ h1 {
     height: 55vw;
     max-height: 500px;
     max-width: 500px;
+    animation: wheel 10s linear infinite;
 }
 
 .line {
@@ -60,6 +61,7 @@ h1 {
     border: 2px solid black;
     transform-origin: 50% 0%;
     /* linear, comme la roue : les cabines restent bien droites */
+    animation: cabins 10s linear infinite;
 }
 
 .cabin:first-of-type {
@@ -90,4 +92,31 @@ h1 {
 .cabin:nth-of-type(6) {
     top: 7%;
     right: 17%;
+}
+
+@keyframes wheel {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes cabins {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        background-color: yellow;
+    }
+    50% {
+        background-color: purple;
+    }
+    75% {
+        background-color: yellow;
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
 }
