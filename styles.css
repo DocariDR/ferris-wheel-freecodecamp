@@ -1,4 +1,3 @@
-/* La bordure est comptée dans la largeur et la hauteur des éléments */
 *,
 *::before,
 *::after {
@@ -12,9 +11,7 @@ h1 {
 .wheel {
     border: 2px solid black;
     border-radius: 50%;
-    /* relative : la roue reste dans le flux et sert de repère aux cabines */
     position: relative;
-    /* auto à gauche et à droite : la roue est centrée */
     margin: 20px auto;
     width: 55vw;
     height: 55vw;
@@ -60,7 +57,6 @@ h1 {
     position: absolute;
     border: 2px solid black;
     transform-origin: 50% 0%;
-    /* linear, comme la roue : les cabines restent bien droites */
     animation: cabins 10s linear infinite;
 }
 
@@ -121,6 +117,7 @@ h1 {
     }
 }
 
+/* Respecte le réglage "réduire les animations" du système */
 @media (prefers-reduced-motion: reduce) {
     .wheel,
     .cabin {
