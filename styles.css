@@ -1,3 +1,9 @@
+:root {
+    --wheel-size: min(55vw, 500px); 
+    --wheel-duration: 10s;
+    --color-rim: #0f172a;
+}
+
 *,
 *::before,
 *::after {
@@ -8,20 +14,19 @@ h1 {
     text-align: center;
 }
 
+/* ---------- La roue ---------- */
 .wheel {
-    border: 2px solid black;
+    border: 2px solid var(--color-rim);
     border-radius: 50%;
     position: relative;
     margin: 20px auto;
-    width: 55vw;
-    height: 55vw;
-    max-height: 500px;
-    max-width: 500px;
-    animation: wheel 10s linear infinite;
+    width: var(--wheel-size);
+    height: var(--wheel-size);
+    animation: wheel var(--wheel-duration) linear infinite;
 }
 
 .line {
-    background-color: black;
+    background-color: var(--color-rim);
     width: 50%;
     height: 2px;
     position: absolute;
@@ -55,9 +60,10 @@ h1 {
     width: 20%;
     height: 20%;
     position: absolute;
-    border: 2px solid black;
+    border: 2px solid var(--color-rim);
     transform-origin: 50% 0%;
-    animation: cabins 10s linear infinite;
+    /* linear, comme la roue : les cabines restent bien droites */
+    animation: cabins var(--wheel-duration) linear infinite;
 }
 
 .cabin:first-of-type {
