@@ -3,6 +3,7 @@
     --wheel-duration: 10s;
     --hanging-radius: calc(var(--wheel-size) * 0.485);
     --cabin-size: calc(var(--wheel-size) * 0.20);
+
     --color-rim: #0f172a;
     --color-cabin: #e63946;
     --color-cabin-dark: #c1121f;
@@ -39,6 +40,9 @@ main {
 h1 {
     text-align: center;
     margin: 0 0 1rem;
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 0.02em;
 }
 
 /* ---------- La roue ---------- */
@@ -78,11 +82,11 @@ h1 {
     left: 50%;
     width: var(--cabin-size);
     height: var(--cabin-size);
-    margin-left: calc(var(--cabin-size) / -2); /* centre horizontalement sur le point d'accroche */
+    margin-left: calc(var(--cabin-size) / -2);
     background: linear-gradient(180deg, var(--color-cabin), var(--color-cabin-dark));
     border: 2px solid var(--color-rim);
     border-radius: 4px;
-    transform-origin: 50% 0%; /* le point d'accroche est le centre du bord supérieur */
+    transform-origin: 50% 0%;
     animation: cabins var(--wheel-duration) linear infinite;
 }
 
