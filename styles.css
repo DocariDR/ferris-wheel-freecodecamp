@@ -45,6 +45,18 @@ h1 {
     letter-spacing: 0.02em;
 }
 
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 /* ---------- La roue ---------- */
 .wheel {
     border: 2px solid var(--color-rim);
@@ -61,6 +73,7 @@ body.paused .cabin {
     animation-play-state: paused;
 }
 
+/* ---------- Rayons ---------- */
 .line {
     background-color: var(--color-rim);
     width: 50%;
@@ -87,11 +100,11 @@ body.paused .cabin {
     left: 50%;
     width: var(--cabin-size);
     height: var(--cabin-size);
-    margin-left: calc(var(--cabin-size) / -2);
+    margin-left: calc(var(--cabin-size) / -2); /* centre horizontalement sur le point d'accroche */
     background: linear-gradient(180deg, var(--color-cabin), var(--color-cabin-dark));
     border: 2px solid var(--color-rim);
     border-radius: 4px;
-    transform-origin: 50% 0%;
+    transform-origin: 50% 0%; /* le point d'accroche est le centre du bord supérieur */
     animation: cabins var(--wheel-duration) linear infinite;
 }
 
