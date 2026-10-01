@@ -56,6 +56,11 @@ h1 {
     animation: wheel var(--wheel-duration) linear infinite;
 }
 
+body.paused .wheel,
+body.paused .cabin {
+    animation-play-state: paused;
+}
+
 .line {
     background-color: var(--color-rim);
     width: 50%;
@@ -98,6 +103,34 @@ h1 {
 @keyframes cabins {
     from { transform: rotate(calc(var(--angle) * -1)); }
     to   { transform: rotate(calc(var(--angle) * -1 - 360deg)); }
+}
+
+.controls {
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+#toggleMotion {
+    font: inherit;
+    font-weight: 600;
+    padding: 0.55rem 1.5rem;
+    border: 2px solid var(--color-rim);
+    border-radius: 999px;
+    background: var(--color-bg);
+    color: var(--color-text);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    min-width: 110px;
+}
+
+#toggleMotion:hover {
+    background: var(--color-rim);
+    color: var(--color-bg);
+}
+
+#toggleMotion:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
 }
 
 /* Respecte le réglage "réduire les animations" du système */
