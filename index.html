@@ -10,18 +10,20 @@
         <main>
             <h1>Ferris Wheel</h1>
             <div class="wheel" role="img" aria-label="Animated Ferris wheel with six cabins">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-                <div class="cabin"></div>
-                <div class="cabin"></div>
-                <div class="cabin"></div>
-                <div class="cabin"></div>
-                <div class="cabin"></div>
-                <div class="cabin"></div>
+                <!-- Six spokes (radii) -->
+                <span class="line" style="--angle: 0deg"></span>
+                <span class="line" style="--angle: 60deg"></span>
+                <span class="line" style="--angle: 120deg"></span>
+                <span class="line" style="--angle: 180deg"></span>
+                <span class="line" style="--angle: 240deg"></span>
+                <span class="line" style="--angle: 300deg"></span>
+
+                <div class="cabin-wrap" style="--angle: 270deg"><div class="cabin"></div></div>
+                <div class="cabin-wrap" style="--angle: 210deg"><div class="cabin"></div></div>
+                <div class="cabin-wrap" style="--angle: 150deg"><div class="cabin"></div></div>
+                <div class="cabin-wrap" style="--angle: 90deg"><div class="cabin"></div></div>
+                <div class="cabin-wrap" style="--angle: 30deg"><div class="cabin"></div></div>
+                <div class="cabin-wrap" style="--angle: 330deg"><div class="cabin"></div></div>
             </div>
         </main>
     </body>

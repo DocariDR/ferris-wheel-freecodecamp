@@ -1,7 +1,13 @@
 :root {
-    --wheel-size: min(55vw, 500px); 
+    --wheel-size: min(55vw, 500px);
     --wheel-duration: 10s;
+    --hanging-radius: calc(var(--wheel-size) * 0.485);
+    --cabin-size: calc(var(--wheel-size) * 0.20);
     --color-rim: #0f172a;
+    --color-cabin: #e63946;
+    --color-cabin-dark: #c1121f;
+    --color-text: #0f172a;
+    --color-bg: #ffffff;
 }
 
 *,
@@ -10,8 +16,29 @@
     box-sizing: border-box;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    padding: 1rem;
+}
+
+main {
+    width: 100%;
+    max-width: 640px;
+}
+
 h1 {
     text-align: center;
+    margin: 0 0 1rem;
 }
 
 /* ---------- La roue ---------- */
@@ -19,7 +46,7 @@ h1 {
     border: 2px solid var(--color-rim);
     border-radius: 50%;
     position: relative;
-    margin: 20px auto;
+    margin: 1.5rem auto calc(var(--cabin-size) + 1.5rem);
     width: var(--wheel-size);
     height: var(--wheel-size);
     animation: wheel var(--wheel-duration) linear infinite;
@@ -33,94 +60,40 @@ h1 {
     top: 50%;
     left: 50%;
     transform-origin: 0% 0%;
+    transform: rotate(var(--angle));
 }
 
-.line:nth-of-type(2) {
-    transform: rotate(60deg);
-}
-
-.line:nth-of-type(3) {
-    transform: rotate(120deg);
-}
-
-.line:nth-of-type(4) {
-    transform: rotate(180deg);
-}
-
-.line:nth-of-type(5) {
-    transform: rotate(240deg);
-}
-
-.line:nth-of-type(6) {
-    transform: rotate(300deg);
+.cabin-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: rotate(var(--angle)) translateY(calc(-1 * var(--hanging-radius)));
 }
 
 .cabin {
-    background-color: red;
-    width: 20%;
-    height: 20%;
     position: absolute;
+    top: 0;
+    left: 50%;
+    width: var(--cabin-size);
+    height: var(--cabin-size);
+    margin-left: calc(var(--cabin-size) / -2); /* centre horizontalement sur le point d'accroche */
+    background: linear-gradient(180deg, var(--color-cabin), var(--color-cabin-dark));
     border: 2px solid var(--color-rim);
-    transform-origin: 50% 0%;
-    /* linear, comme la roue : les cabines restent bien droites */
+    border-radius: 4px;
+    transform-origin: 50% 0%; /* le point d'accroche est le centre du bord supérieur */
     animation: cabins var(--wheel-duration) linear infinite;
 }
 
-.cabin:first-of-type {
-    top: 50%;
-    right: -8.5%;
-}
-
-.cabin:nth-of-type(2) {
-    top: 93.5%;
-    right: 17%;
-}
-
-.cabin:nth-of-type(3) {
-    top: 93.5%;
-    right: 67%;
-}
-
-.cabin:nth-of-type(4) {
-    top: 50%;
-    left: -8.5%;
-}
-
-.cabin:nth-of-type(5) {
-    top: 7%;
-    left: 17%;
-}
-
-.cabin:nth-of-type(6) {
-    top: 7%;
-    right: 17%;
-}
-
 @keyframes wheel {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
 }
 
 @keyframes cabins {
-    0% {
-        transform: rotate(0deg);
-    }
-    25% {
-        background-color: yellow;
-    }
-    50% {
-        background-color: purple;
-    }
-    75% {
-        background-color: yellow;
-    }
-    100% {
-        transform: rotate(-360deg);
-    }
+    from { transform: rotate(calc(var(--angle) * -1)); }
+    to   { transform: rotate(calc(var(--angle) * -1 - 360deg)); }
 }
 
 /* Respecte le réglage "réduire les animations" du système */
