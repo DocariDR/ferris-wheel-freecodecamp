@@ -3,7 +3,23 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Ferris Wheel</title>
+
+        <!-- SEO basics -->
+        <title>Ferris Wheel — Pure CSS Animation Demo</title>
+        <meta name="description" content="A pure CSS animated Ferris wheel with six hanging cabins. Lightweight, dependency-free, and accessible (pause control + reduced-motion support).">
+        <meta name="author" content="Ferris Wheel demo">
+        <meta name="theme-color" content="#0f172a">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Ferris Wheel — Pure CSS Animation Demo">
+        <meta property="og:description" content="A pure CSS animated Ferris wheel with six hanging cabins — lightweight, accessible, dependency-free.">
+        <!-- TODO: replace with your real URL before deploying -->
+        <!-- <meta property="og:url" content="https://votre-domaine.example/ferris-wheel/"> -->
+
+        <!-- Twitter card -->
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:title" content="Ferris Wheel — Pure CSS Animation Demo">
+        <meta name="twitter:description" content="A pure CSS animated Ferris wheel with six hanging cabins — lightweight, accessible, dependency-free.">
+
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
@@ -11,7 +27,6 @@
             <h1>Ferris Wheel</h1>
             <p class="sr-only">An animated Ferris wheel with six hanging cabins, rotating continuously. Use the Pause button to stop the motion at any time.</p>
             <div class="wheel" role="img" aria-label="Animated Ferris wheel with six cabins">
-                <!-- Six spokes (radii) -->
                 <span class="line" style="--angle: 0deg"></span>
                 <span class="line" style="--angle: 60deg"></span>
                 <span class="line" style="--angle: 120deg"></span>
