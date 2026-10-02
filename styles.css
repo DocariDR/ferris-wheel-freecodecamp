@@ -100,11 +100,11 @@ body.paused .cabin {
     left: 50%;
     width: var(--cabin-size);
     height: var(--cabin-size);
-    margin-left: calc(var(--cabin-size) / -2); /* centre horizontalement sur le point d'accroche */
+    margin-left: calc(var(--cabin-size) / -2);
     background: linear-gradient(180deg, var(--color-cabin), var(--color-cabin-dark));
     border: 2px solid var(--color-rim);
     border-radius: 4px;
-    transform-origin: 50% 0%; /* le point d'accroche est le centre du bord supérieur */
+    transform-origin: 50% 0%;
     animation: cabins var(--wheel-duration) linear infinite;
 }
 
@@ -146,10 +146,12 @@ body.paused .cabin {
     outline-offset: 2px;
 }
 
-/* Respecte le réglage "réduire les animations" du système */
 @media (prefers-reduced-motion: reduce) {
     .wheel,
     .cabin {
         animation: none;
+    }
+    .controls {
+        display: none;
     }
 }
